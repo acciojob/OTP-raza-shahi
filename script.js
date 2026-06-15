@@ -1,31 +1,17 @@
-//your JS code here. If required.
-const inputs = document.getElementById("code-container");
-inputs[0].focus();
-inputs.addEventListener("input", (e) => {
-  const target = e.target;
-  const value = target.value;
-  if (isNaN(value)) {
-    target.value = "";
-    return;
-  }
+const codes = document.querySelectorAll(".code");
 
-  if (value != "") {
-    const next = target.nextElementSibling;
-    if (next) {
-      next.focus();
-    }
-  }
-});
+codes[0].focus();
 
-inputs.addEventListener("keyup", (e) => {
-  const target = e.target;
-  const key = e.key.toLowerCase();
-  if (key === "backspace" || key === "delete") {
-    target.value = "";
-    const prev = target.previousElementSibling;
-    if (prev) {
-      prev.focus();
+codes.forEach((code, index) => {
+  code.addEventListener("input", (e) => {
+    if (index < codes.length - 1 && e.target.value !== "") {
+      codes[index + 1].focus();
     }
-    return;
-  }
+  });
+
+  code.addEventListener("keyup", (e) => {
+    if (e.key === "Backspace" && index > 0) {
+      codes[index - 1].focus();
+    }
+  });
 });
