@@ -1,6 +1,6 @@
 //your JS code here. If required.
 const inputs = document.getElementById("code-container");
-codes[0].focus();
+inputs[0].focus();
 inputs.addEventListener("input", (e) => {
   const target = e.target;
   const value = target.value;
