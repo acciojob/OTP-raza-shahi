@@ -1,5 +1,4 @@
 //your JS code here. If required.
-//your JS code here. If required.
 const inputs = document.getElementById("code-container");
 
 inputs.addEventListener("input", (e) => {
